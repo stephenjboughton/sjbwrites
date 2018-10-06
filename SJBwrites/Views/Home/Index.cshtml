@@ -1,0 +1,51 @@
+﻿@model Tuple<List<Review>, List<Preview>, List<Feature>>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="portfolio">
+    <div class="features">
+        @foreach (Feature feature in @Model.Item3)
+        {
+            
+        <div class="feature">
+            
+            <h1><a href="@feature.Url" target="_blank">@feature.Head</a></h1>
+            <div>@feature.Deck</div>
+            <div class="body-text">@feature.StoryBody</div>
+            <div class="story-type">Feature Story</div><div>Published @feature.PublishDate.ToShortDateString()</div>
+        </div>
+                <hr />
+            
+        }
+    </div>
+    <div class="previews">
+        @foreach (Preview preview in @Model.Item2)
+        {
+            
+        <div class="preview">
+            <h1><a href="@preview.Url" target="_blank">@preview.ArtistName</a></h1>
+            <div class="body-text">@preview.StoryBody</div>
+            <div class="story-type">Concert Preview</div><div class="published-date">Published @preview.PublishDate.ToShortDateString()</div>
+        </div>
+                <hr />
+            
+        }
+    </div>
+    <div class="reviews">
+        @foreach (Review review in @Model.Item1)
+        {
+            
+        <div class="review">
+            <h1><a href="@review.Url" target="_blank">@review.ArtistName</a></h1>
+            <div>@review.Title</div>
+            <div>@review.Label</div>
+            <div class="body-text">@review.StoryBody</div>
+            <div class="story-type">Concert Preview</div><div class="published-date">Published @review.PublishDate.ToShortDateString()</div>
+        </div>
+                <hr />
+            
+        }
+    </div>
+</div>
+
+
